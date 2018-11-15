@@ -140,6 +140,18 @@ var wordsFind = [
   'disobedience'
 ];
 
+function doesWordExist(wordsFind,word){
+  if(wordsFind.includes(word)){
+    return true;
+}else if(wordsFind = ""){
+  return false;
+}else{
+  return false;
+}
+}
+
+doesWordExist(wordsFind, "eating");
+
 // Counting Repetion
 var wordsCount = [
   'machine',
@@ -154,6 +166,24 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(wordsCount,word){
+  number = 0;
+  if(wordsCount != ""){
+  wordsCount.forEach(function(oneWord){
+    if(oneWord === word){
+      number += 1;
+    }
+      
+  });
+  return number;
+}else{
+  return false;
+}
+  
+}
+
+howManyTimes(wordsCount,"matter");
 // Bonus Quest
 
 var matrix = [
@@ -178,3 +208,33 @@ var matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+var i,j;
+var product = [];
+for (i=0;i<matrix.length;i++){
+
+  var row = matrix[i];
+  for(j=0;j<row.length;j++){
+    for(k=0;k <= 4;k++){
+      if(row[j] && row[j+1] && row[j+2] && row[j+3]){
+        product.push(row[j] * row[j+1] * row[j+2] * row[j+3]);
+        console.log(product[product.length-1]);
+      }   
+    }
+    
+  }
+}
+
+function greatestProduct(product){
+  biggest = Math.max.apply(null, product);
+  const everythings_equal = product => product.every(thing => thing === product[0]);
+    if(!everythings_equal){
+      return biggest;
+    }else{
+      return matrix[0][0] * 4;
+    }
+    
+  
+  
+}
+
+//console.log("Maior: "+greatestProduct(product));
